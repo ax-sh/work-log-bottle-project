@@ -8,7 +8,7 @@ const TimeSheetPage = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const logRef = React.useRef({});
+  const [date, setDate] = React.useState(new Date());
   const [startTime, setStartTime] = React.useState(new Date());
   const [endTime, setEndTime] = React.useState(new Date());
 
@@ -16,11 +16,10 @@ const TimeSheetPage = () => {
     event.preventDefault();
     const target = event.target;
     const remarks = target.querySelector("[name=remarks]").value;
-    console.log(logRef.current);
 
-    const date = dayjs().format("DD/MM/YYYY");
+    const _date = dayjs(date).format("DD/MM/YYYY");
     const log = {
-      date,
+      date: _date,
       start_time: dayjs(startTime).format("HH:MM"),
       end_time: dayjs(endTime).format("HH:MM"),
       remarks,
@@ -40,6 +39,7 @@ const TimeSheetPage = () => {
       <div class="time-form-container">
         <form onSubmit={createLog}>
           <input name="remarks" type="text" placeholder="What are you doing?" />
+          <DatePicker selected={date} onChange={(date) => setDate(date)} />
           <DatePicker
             selected={startTime}
             onChange={(date) => setStartTime(date)}
