@@ -51,7 +51,19 @@ a {
 #logout-button {
   margin-bottom: 50px;
 }
-
+.time-picker-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.time-picker-container > * {
+  /* flex: 1; */
+}
+.remarks-text-box {
+  width: 100%;
+  font-size: 2em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
 /* 
 .time-form-container form {
   display: flex;

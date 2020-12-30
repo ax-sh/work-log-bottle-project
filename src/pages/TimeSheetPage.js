@@ -63,26 +63,34 @@ const TimeSheetPage = () => {
     <div className="form-container">
       <div class="time-form-container">
         <form onSubmit={createLog}>
-          <input name="remarks" type="text" placeholder="What are you doing?" />
-          <DatePicker selected={date} onChange={(date) => setDate(date)} />
-          <DatePicker
-            selected={startTime}
-            onChange={(date) => setStartTime(date)}
-            showTimeSelect
-            showTimeSelectOnly
-            timeIntervals={15}
-            timeCaption="Time"
-            dateFormat="h:mm aa"
+          <input
+            className="remarks-text-box"
+            name="remarks"
+            type="text"
+            placeholder="What ware you doing?"
           />
-          <DatePicker
-            selected={endTime}
-            onChange={(date) => setEndTime(date)}
-            showTimeSelect
-            showTimeSelectOnly
-            timeIntervals={15}
-            timeCaption="Time"
-            dateFormat="h:mm aa"
-          />
+          <div className="time-picker-container">
+            <DatePicker selected={date} onChange={(date) => setDate(date)} />
+            <DatePicker
+              selected={startTime}
+              onChange={(date) => setStartTime(date)}
+              showTimeSelect
+              showTimeSelectOnly
+              timeIntervals={15}
+              timeCaption="Time"
+              dateFormat="h:mm aa"
+            />
+            <DatePicker
+              selected={endTime}
+              onChange={(date) => setEndTime(date)}
+              showTimeSelect
+              showTimeSelectOnly
+              timeIntervals={15}
+              timeCaption="Time"
+              dateFormat="h:mm aa"
+            />
+          </div>
+
           <input type="submit" value="Update" />
         </form>
       </div>
