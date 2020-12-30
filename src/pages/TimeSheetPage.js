@@ -19,14 +19,19 @@ const TimeSheetPage = () => {
     const target = event.target;
     const remarks = target.querySelector("[name=remarks]").value;
 
-    const _date = dayjs(date).format("DD/MM/YYYY");
+    // TODO sanitize the data
+    // make sure that the stat time is older than the end time
+
     const log = {
-      date: _date,
-      start_time: dayjs(startTime).format("HH:MM"),
-      end_time: dayjs(endTime).format("HH:MM"),
+      date,
+      start_time: startTime,
+      end_time: endTime,
       remarks,
       employeeId: state.currentUser.id,
     };
+    // log.date = dayjs(log.date).format("DD/MM/YYYY");
+    // log.start_time = dayjs(log.start_time).format("HH:mm");
+    // log.end_time = dayjs(log.end_time).format("HH:mm");
 
     setLoading(true);
 

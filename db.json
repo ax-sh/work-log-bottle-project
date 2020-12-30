@@ -1,0 +1,35 @@
+{
+  "employees": [
+    {
+      "name": "Olivia",
+      "id": 0,
+      "image": "https://randomuser.me/api/portraits/women/0.jpg",
+      "isAdmin": true
+    },
+    {
+      "name": "Emma",
+      "id": 1,
+      "image": "https://randomuser.me/api/portraits/women/1.jpg",
+      "isAdmin": false
+    },
+    {
+      "name": "Ava",
+      "id": 2,
+      "image": "https://randomuser.me/api/portraits/women/2.jpg",
+      "isAdmin": false
+    },
+    {
+      "name": "Sophia",
+      "id": 3,
+      "image": "https://randomuser.me/api/portraits/women/3.jpg",
+      "isAdmin": false
+    },
+    {
+      "name": "Isabella",
+      "id": 4,
+      "image": "https://randomuser.me/api/portraits/women/4.jpg",
+      "isAdmin": false
+    }
+  ],
+  "logs": []
+}
