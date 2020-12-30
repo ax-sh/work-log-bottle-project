@@ -13,7 +13,7 @@ const api = {
   getAllEmployees() {
     return employees;
   },
-  getLogForEmployee(id) {
+  getLogsForEmployee(id) {
     return axios
       .get("http://localhost:3001/logs?employeeId=" + id)
       .then((x) => x.data);
