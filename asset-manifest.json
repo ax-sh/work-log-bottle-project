@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/work-log-bottle-project/static/css/main.8c321c14.chunk.css",
+    "main.js": "/work-log-bottle-project/static/js/main.0f759ffd.chunk.js",
+    "main.js.map": "/work-log-bottle-project/static/js/main.0f759ffd.chunk.js.map",
+    "runtime-main.js": "/work-log-bottle-project/static/js/runtime-main.bc4e240d.js",
+    "runtime-main.js.map": "/work-log-bottle-project/static/js/runtime-main.bc4e240d.js.map",
+    "static/css/2.95456d05.chunk.css": "/work-log-bottle-project/static/css/2.95456d05.chunk.css",
+    "static/js/2.a17fc7f7.chunk.js": "/work-log-bottle-project/static/js/2.a17fc7f7.chunk.js",
+    "static/js/2.a17fc7f7.chunk.js.map": "/work-log-bottle-project/static/js/2.a17fc7f7.chunk.js.map",
+    "index.html": "/work-log-bottle-project/index.html",
+    "static/css/2.95456d05.chunk.css.map": "/work-log-bottle-project/static/css/2.95456d05.chunk.css.map",
+    "static/css/main.8c321c14.chunk.css.map": "/work-log-bottle-project/static/css/main.8c321c14.chunk.css.map",
+    "static/js/2.a17fc7f7.chunk.js.LICENSE.txt": "/work-log-bottle-project/static/js/2.a17fc7f7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bc4e240d.js",
+    "static/css/2.95456d05.chunk.css",
+    "static/js/2.a17fc7f7.chunk.js",
+    "static/css/main.8c321c14.chunk.css",
+    "static/js/main.0f759ffd.chunk.js"
+  ]
+}
