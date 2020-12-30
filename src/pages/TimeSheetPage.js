@@ -31,6 +31,7 @@ const TimeSheetPage = () => {
       .then((x) => x.data)
       .then((log) => {
         console.log({ log });
+        console.log({ state });
         dispatch({ type: "CREATE_LOG", log });
       })
       .catch(alert);
@@ -72,7 +73,7 @@ const TimeSheetPage = () => {
       </div>
       <div>
         {state && state.logs && state.logs.map(userLogMapper)}
-        <pre>{JSON.stringify(state, null, 4)}</pre>
+        {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
     </div>
   );
