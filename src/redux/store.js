@@ -3,6 +3,7 @@ import { createStore, applyMiddleware } from "redux";
 const actions = {
   CREATE_LOG: "CREATE_LOG",
   UPDATE_EMPLOYEES: "UPDATE_EMPLOYEES",
+  UPDATE_LOGS: "UPDATE_LOGS",
 };
 
 const initState = {
@@ -17,6 +18,8 @@ function reducer(state = initState, action) {
       return { ...state, logs: [...state.logs, action.log] };
     case actions.UPDATE_EMPLOYEES:
       return { ...state, employees: [action.employees, ...state.employees] };
+    case actions.UPDATE_LOGS:
+      return { ...state, logs: action.logs };
   }
 }
 
