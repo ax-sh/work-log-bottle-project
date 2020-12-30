@@ -28,6 +28,27 @@ const api = {
   getLogs() {
     return axios.get(this.DOMAIN + "/logs").then((x) => x.data);
   },
+  populateDummyData() {
+    this.getAllEmployees().forEach((i) => {
+      const employeeId = i.id;
+      Array(30)
+        .fill(1)
+        .map((x, y) => x + y)
+        .forEach((i) => {
+          const date = "2020/12/" + i;
+          const start_time = "1:00";
+          const end_time = "3:00";
+          const remarks = "Normal work " + date;
+          this.createLog({
+            date,
+            start_time,
+            end_time,
+            remarks,
+            employeeId,
+          });
+        });
+    });
+  },
 };
 
 export default api;
