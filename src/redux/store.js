@@ -8,7 +8,7 @@ const actions = {
 const initState = {
   logs: [],
   employees: [],
-  currenrtUser: {},
+  currentUser: {},
 };
 
 function reducer(state = initState, action) {
