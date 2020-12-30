@@ -11,8 +11,9 @@
         "**/public": true,
         "**/.gitignore": true,
         "**/debug.log": true,
-        "**/package.json": false,
-        "**/.eslintcache": true
+        "**/package.json": true,
+        "**/.eslintcache": true,
+        "src/index.js": true
     },
     "explorerExclude.backup": null
 }
