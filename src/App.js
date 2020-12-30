@@ -62,15 +62,16 @@ const App = () => {
       <Link className="auth-nav" to="/timesheet">
         Create New Log
       </Link>
-      <button
+      <a
         id="logout-button"
+        href="#"
         className="auth-nav"
         onClick={() => {
           dispatch({ type: "CLEAR_CURRENT_USER" });
         }}
       >
         Logout
-      </button>
+      </a>
     </nav>
   );
 

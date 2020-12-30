@@ -64,6 +64,22 @@ a {
   padding: 0.5em;
   margin-bottom: 1em;
 }
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  vertical-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 2em;
+  color: green;
+}
+
+nav a:hover {
+  color: #fff;
+}
 /* 
 .time-form-container form {
   display: flex;
