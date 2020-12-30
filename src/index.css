@@ -64,6 +64,50 @@ a {
   padding: 0.5em;
   margin-bottom: 1em;
 }
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  vertical-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 2em;
+  color: green;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.nav-profile-wrapper {
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+  background-color: #202020;
+  font-weight: 300;
+  width: 80%;
+  padding-left: 10%;
+  margin: auto;
+}
+
+.nav-profile-wrapper img {
+  border-radius: 50%;
+}
+.nav-profile-wrapper h1 {
+  font-size: 2em;
+  margin: 0;
+  margin-left: 100px;
+  margin-top: -10px;
+}
+
+.time-form-container {
+  margin-bottom: 20px;
+}
+
+.time-form-container input[type="submit"] {
+  font-size: 3em;
+}
 /* 
 .time-form-container form {
   display: flex;

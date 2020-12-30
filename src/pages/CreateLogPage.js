@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import api from "../api";
 
-const TimeSheetPage = () => {
+const CreateLogPage = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -67,7 +67,7 @@ const TimeSheetPage = () => {
             className="remarks-text-box"
             name="remarks"
             type="text"
-            placeholder="What ware you doing?"
+            placeholder="What were you doing?"
           />
           <div className="time-picker-container">
             <DatePicker selected={date} onChange={(date) => setDate(date)} />
@@ -95,16 +95,15 @@ const TimeSheetPage = () => {
         </form>
       </div>
       <div>
-        {loading && <div class="loading">loading...</div>}
+        {loading && <div class="loading">SUBMITTING LOG...</div>}
         {state &&
           state.logs &&
           state.logs
             .filter((i) => i.employeeId === state?.currentUser?.id) //not recommending to do this in real projects
             .map(userLogMapper)}
-        {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
     </div>
   );
 };
 
-export default TimeSheetPage;
+export default CreateLogPage;

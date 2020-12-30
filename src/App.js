@@ -1,6 +1,6 @@
 import React from "react";
 import api from "./api";
-import TimeSheetPage from "./pages/TimeSheetPage";
+import CreateLogPage from "./pages/CreateLogPage";
 import ReportPage from "./pages/ReportPage";
 import LoginPage from "./pages/LoginPage";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,53 +41,52 @@ const App = () => {
     if (state?.currentUser?.name) {
       document.querySelector("#login-nav").style.display = "none";
       document.querySelectorAll(".auth-nav").forEach((i) => {
-        i.style.display = "inherit";
+        i.style.display = "inline-block";
       });
     } else {
       document.querySelectorAll(".auth-nav").forEach((i) => {
         i.style.display = "none";
       });
-      document.querySelector("#login-nav").style.display = "inherit";
+      document.querySelector("#login-nav").style.display = "inline-block";
     }
   }, [state]);
 
-  function Navbar() {
-    return (
-      <div>
-        <button
-          id="logout-button"
-          className="auth-nav"
-          onClick={() => {
-            dispatch({ type: "CLEAR_CURRENT_USER" });
-          }}
-        >
-          Logout
-        </button>
-        <Link id="login-nav" to="/login">
-          Login
-        </Link>
-        <Link className="auth-nav" to="/report">
-          Report
-        </Link>
-        <Link className="auth-nav" to="/timesheet">
-          TimeSheet
-        </Link>
-      </div>
-    );
-  }
+  const Navbar = () => (
+    <nav>
+      <Link className="auth-nav" to="/">
+        Home
+      </Link>
+      <Link className="auth-nav" to="/show_logs">
+        Show All Users Time Logs
+      </Link>
+      <Link id="login-nav" to="/login">
+        Login
+      </Link>
+      <a
+        id="logout-button"
+        href="#"
+        className="auth-nav"
+        onClick={() => {
+          dispatch({ type: "CLEAR_CURRENT_USER" });
+        }}
+      >
+        Logout
+      </a>
+    </nav>
+  );
 
   return (
     <main>
+      <Navbar />
       {state?.currentUser?.name && (
-        <div>
+        <div className="nav-profile-wrapper">
           <img src={state?.currentUser?.image} />
           <h1>
-            Logged in as {state?.currentUser?.name}{" "}
+            {state?.currentUser?.name}{" "}
             <span>({state?.currentUser?.isAdmin ? "admin" : "user"})</span>
           </h1>
         </div>
       )}
-      <Navbar />
       <div className="container">
         <Switch>
           {!state?.currentUser?.name && (
@@ -95,12 +94,14 @@ const App = () => {
           )}
           <PrivateRoute
             authed={state?.currentUser?.name}
-            path="/timesheet"
-            component={TimeSheetPage}
+            path="/"
+            exact
+            component={CreateLogPage}
           />
           <PrivateRoute
             authed={state?.currentUser?.name}
-            path="/report"
+            path="/show_logs"
+            exact
             component={ReportPage}
           />
         </Switch>
