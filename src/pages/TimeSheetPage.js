@@ -53,7 +53,6 @@ const TimeSheetPage = () => {
   return (
     <div className="form-container">
       <div class="time-form-container">
-        {loading && <div class="loading">loading...</div>}
         <form onSubmit={createLog}>
           <input name="remarks" type="text" placeholder="What are you doing?" />
           <DatePicker selected={date} onChange={(date) => setDate(date)} />
@@ -79,6 +78,7 @@ const TimeSheetPage = () => {
         </form>
       </div>
       <div>
+        {loading && <div class="loading">loading...</div>}
         {state && state.logs && state.logs.map(userLogMapper)}
         {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
