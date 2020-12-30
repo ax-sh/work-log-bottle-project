@@ -21,6 +21,11 @@ const App = () => {
   React.useEffect(() => {
     const employees = api.getAllEmployees();
     dispatch({ type: "UPDATE_EMPLOYEES", employees });
+
+    api.getLogs().then((logs) => {
+      console.log(logs);
+      dispatch({ type: "UPDATE_LOGS", logs });
+    });
   }, []);
   return (
     <main>

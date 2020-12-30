@@ -21,12 +21,22 @@ const ReportPage = () => {
       {/* {JSON.stringify(state.logs)} */}
       {selected === "1D" && (
         <div>
-          1D
-          {console.log(state.logs)}
+          <h1>1D</h1>
+          {state?.logs.map((i) => (
+            <div>{JSON.stringify(i)}</div>
+          ))}
         </div>
       )}
-      {selected === "1W" && <div>1W</div>}
-      {selected === "1M" && <div>1M</div>}
+      {selected === "1W" && (
+        <div>
+          <h1>1W</h1>
+        </div>
+      )}
+      {selected === "1M" && (
+        <div>
+          <h1>1M</h1>
+        </div>
+      )}
     </div>
   );
 };
