@@ -23,7 +23,7 @@ const api = {
       .then((x) => x.data);
   },
   createLog(log) {
-    return axios.post(this.DOMAIN + "/logs", log);
+    return axios.post(this.DOMAIN + "/logs", log).then((x) => x.data);
   },
   getLogs() {
     return axios.get(this.DOMAIN + "/logs").then((x) => x.data);

@@ -37,7 +37,6 @@ const TimeSheetPage = () => {
 
     api
       .createLog(log)
-      .then((x) => x.data)
       .then((log) => {
         dispatch({ type: "CREATE_LOG", log });
       })
