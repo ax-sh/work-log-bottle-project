@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import api from "../api";
 
-const TimeSheetPage = () => {
+const CreateLogPage = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -101,10 +101,9 @@ const TimeSheetPage = () => {
           state.logs
             .filter((i) => i.employeeId === state?.currentUser?.id) //not recommending to do this in real projects
             .map(userLogMapper)}
-        {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
     </div>
   );
 };
 
-export default TimeSheetPage;
+export default CreateLogPage;

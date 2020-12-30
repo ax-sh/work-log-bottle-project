@@ -1,6 +1,6 @@
 import React from "react";
 import api from "./api";
-import TimeSheetPage from "./pages/TimeSheetPage";
+import CreateLogPage from "./pages/CreateLogPage";
 import ReportPage from "./pages/ReportPage";
 import LoginPage from "./pages/LoginPage";
 import { useDispatch, useSelector } from "react-redux";
@@ -82,7 +82,7 @@ const App = () => {
         <div className="nav-profile-wrapper">
           <img src={state?.currentUser?.image} />
           <h1>
-            Logged in as {state?.currentUser?.name}{" "}
+            {state?.currentUser?.name}{" "}
             <span>({state?.currentUser?.isAdmin ? "admin" : "user"})</span>
           </h1>
         </div>
@@ -94,8 +94,8 @@ const App = () => {
           )}
           <PrivateRoute
             authed={state?.currentUser?.name}
-            path="/timesheet"
-            component={TimeSheetPage}
+            path="/"
+            component={CreateLogPage}
           />
           <PrivateRoute
             authed={state?.currentUser?.name}
