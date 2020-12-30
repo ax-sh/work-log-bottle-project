@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
+import dayjs from "dayjs";
 
 const ReportPage = () => {
   const state = useSelector((state) => state);
@@ -20,9 +21,17 @@ const ReportPage = () => {
         newLogs[e] = {};
       }
       if (!newLogs[e][i.date]) {
-        newLogs[e][i.date] = [];
+        newLogs[e][i.date] = 0;
       }
-      newLogs[e][i.date].push({ a: i.start_time, b: i.end_time });
+
+      const ft = dayjs(`2000-01-01 ${i.start_time}`);
+      const tt = dayjs(`2000-01-01 ${i.end_time}`);
+      const mins = tt.diff(ft, "minutes", true);
+      const totalHours = parseFloat(mins / 60);
+      // const totalMins = dayjs().minute(mins).$m;
+
+      newLogs[e][i.date] += totalHours;
+      // .push(totalHours);
     });
     return newLogs;
   };
