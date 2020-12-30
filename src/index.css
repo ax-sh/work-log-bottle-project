@@ -48,6 +48,9 @@ a {
 .user-log > div {
   flex: 1;
 }
+#logout-button {
+  margin-bottom: 50px;
+}
 
 /* 
 .time-form-container form {

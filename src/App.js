@@ -54,6 +54,15 @@ const App = () => {
   function Navbar() {
     return (
       <div>
+        <button
+          id="logout-button"
+          className="auth-nav"
+          onClick={() => {
+            dispatch({ type: "CLEAR_CURRENT_USER" });
+          }}
+        >
+          Logout
+        </button>
         <Link id="login-nav" to="/login">
           Login
         </Link>
@@ -63,14 +72,6 @@ const App = () => {
         <Link className="auth-nav" to="/timesheet">
           TimeSheet
         </Link>
-        <button
-          className="auth-nav"
-          onClick={() => {
-            dispatch({ type: "CLEAR_CURRENT_USER" });
-          }}
-        >
-          Logout
-        </button>
       </div>
     );
   }
