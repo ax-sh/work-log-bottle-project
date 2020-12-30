@@ -11,6 +11,7 @@ const TimeSheetPage = () => {
 
   const [date, setDate] = React.useState(new Date());
   const [startTime, setStartTime] = React.useState(new Date());
+  const [loading, setLoading] = React.useState(false);
   const [endTime, setEndTime] = React.useState(new Date());
 
   const createLog = (event) => {
@@ -26,6 +27,8 @@ const TimeSheetPage = () => {
       remarks,
     };
 
+    setLoading(true);
+
     api
       .createLog(log)
       .then((x) => x.data)
@@ -34,7 +37,10 @@ const TimeSheetPage = () => {
         console.log({ state });
         dispatch({ type: "CREATE_LOG", log });
       })
-      .catch(alert);
+      .catch(alert)
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const userLogMapper = (i) => (
@@ -47,6 +53,7 @@ const TimeSheetPage = () => {
   return (
     <div className="form-container">
       <div class="time-form-container">
+        {loading && <div class="loading">loading...</div>}
         <form onSubmit={createLog}>
           <input name="remarks" type="text" placeholder="What are you doing?" />
           <DatePicker selected={date} onChange={(date) => setDate(date)} />
