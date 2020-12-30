@@ -23,9 +23,6 @@ function Navbar() {
 }
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
-  // if (!authed) {
-  //   alert("Please Login ");
-  // }
   return (
     <Route
       {...rest}
@@ -45,6 +42,8 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
 const App = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const { currentUser } = state;
+
   React.useEffect(() => {
     const employees = api.getAllEmployees();
     dispatch({ type: "UPDATE_EMPLOYEES", employees });
@@ -67,23 +66,30 @@ const App = () => {
       document.querySelector("#login-nav").style.display = "inherit";
     }
   }, [state]);
+
   return (
     <main>
+      {state?.currentUser?.name && (
+        <div>
+          <h1>
+            Logged in as {currentUser?.name}{" "}
+            <span>({currentUser?.isAdmin ? "admin" : "user"})</span>
+          </h1>
+        </div>
+      )}
       <Navbar />
       <div className="container">
         <Switch>
-          {!state?.currentUser?.name && (
+          {!currentUser?.name && (
             <Route path="/login" component={LoginPage} exact />
           )}
-          {/* <Route path="/timesheet" component={TimeSheetPage} /> */}
-          {/* <Route path="/report" component={ReportPage} /> */}
           <PrivateRoute
-            authed={state?.currentUser?.name}
+            authed={currentUser?.name}
             path="/timesheet"
             component={TimeSheetPage}
           />
           <PrivateRoute
-            authed={state?.currentUser?.name}
+            authed={currentUser?.name}
             path="/report"
             component={ReportPage}
           />
