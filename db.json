@@ -31,5 +31,14 @@
       "isAdmin": false
     }
   ],
-  "logs": []
+  "logs": [
+    {
+      "date": "2020-12-30T12:44:16.253Z",
+      "start_time": "2020-12-30T12:00:00.253Z",
+      "end_time": "2020-12-30T12:15:00.253Z",
+      "remarks": "Hoping to not go home empty handed ",
+      "employeeId": 0,
+      "id": 1
+    }
+  ]
 }

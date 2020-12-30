@@ -29,7 +29,7 @@ const TimeSheetPage = () => {
       remarks,
       employeeId: state.currentUser.id,
     };
-    // log.date = dayjs(log.date).format("DD/MM/YYYY");
+    log.date = dayjs(log.date).format("DD/MM/YYYY");
     // log.start_time = dayjs(log.start_time).format("HH:mm");
     // log.end_time = dayjs(log.end_time).format("HH:mm");
 
