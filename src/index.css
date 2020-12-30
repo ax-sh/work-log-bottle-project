@@ -19,6 +19,29 @@ a {
   margin: auto;
 }
 
+.profile-wrapper img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.profile-wrapper span {
+  background: rgba(255, 0, 0, 0.534);
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  /* margin-left: -20px; */
+  /* margin-bottom: -50px; */
+}
+
+.profile-wrapper {
+  /* display: grid;
+  place-items: center; */
+  position: relative;
+}
+
 /* 
 .time-form-container form {
   display: flex;

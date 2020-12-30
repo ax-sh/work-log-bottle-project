@@ -10,6 +10,7 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
   return (
     <Route
       {...rest}
+      exact
       render={(props) =>
         authed ? (
           <Component {...props} />
@@ -54,7 +55,7 @@ const App = () => {
     return (
       <div>
         <Link id="login-nav" to="/login">
-          Login{" "}
+          Login
         </Link>
         <Link className="auth-nav" to="/report">
           Report
@@ -78,6 +79,7 @@ const App = () => {
     <main>
       {state?.currentUser?.name && (
         <div>
+          <img src={state?.currentUser?.image} />
           <h1>
             Logged in as {state?.currentUser?.name}{" "}
             <span>({state?.currentUser?.isAdmin ? "admin" : "user"})</span>

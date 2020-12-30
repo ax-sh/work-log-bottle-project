@@ -10,10 +10,10 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       {state?.employees.map((i) => (
-        <div>
+        <div className="profile-wrapper">
           <img src={i.image} alt="image" />
-          <button onClick={() => onClick(i)}>{i.name + " "}</button>
-          {i.isAdmin ? "admin" : "user"}
+          <span>{i.isAdmin ? "admin" : "user"}</span>
+          <button onClick={() => onClick(i)}>Login as {i.name}</button>
         </div>
       ))}
     </div>
