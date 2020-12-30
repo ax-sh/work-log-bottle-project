@@ -18,6 +18,9 @@ const api = {
   createLog(log) {
     return axios.post("http://localhost:3001/logs", log);
   },
+  getLogs() {
+    return axios.get("http://localhost:3001/logs").then((x) => x.data);
+  },
 };
 
 export default api;
