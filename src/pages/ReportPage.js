@@ -19,7 +19,12 @@ const ReportPage = () => {
         <input type="button" value="1M" onClick={onClick} />
       </div>
       {/* {JSON.stringify(state.logs)} */}
-      {selected === "1D" && <div>1D</div>}
+      {selected === "1D" && (
+        <div>
+          1D
+          {console.log(state.logs)}
+        </div>
+      )}
       {selected === "1W" && <div>1W</div>}
       {selected === "1M" && <div>1M</div>}
     </div>
