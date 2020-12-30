@@ -34,8 +34,6 @@ const TimeSheetPage = () => {
       .createLog(log)
       .then((x) => x.data)
       .then((log) => {
-        console.log({ log });
-        console.log({ state });
         dispatch({ type: "CREATE_LOG", log });
       })
       .catch(alert)

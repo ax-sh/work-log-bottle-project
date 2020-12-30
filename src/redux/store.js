@@ -5,6 +5,7 @@ const actions = {
   UPDATE_EMPLOYEES: "UPDATE_EMPLOYEES",
   UPDATE_LOGS: "UPDATE_LOGS",
   SET_CURRENT_USER: "SET_CURRENT_USER",
+  CLEAR_CURRENT_USER: "CLEAR_CURRENT_USER",
 };
 
 const initState = {
@@ -23,6 +24,8 @@ function reducer(state = initState, action) {
       return { ...state, logs: action.logs };
     case actions.SET_CURRENT_USER:
       return { ...state, currentUser: action.currentUser };
+    case actions.CLEAR_CURRENT_USER:
+      return { ...state, currentUser: {} };
   }
 }
 

@@ -6,22 +6,6 @@ import LoginPage from "./pages/LoginPage";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
 
-function Navbar() {
-  return (
-    <div>
-      <Link id="login-nav" to="/login">
-        Login{" "}
-      </Link>
-      <Link className="auth-nav" to="/report">
-        Report
-      </Link>
-      <Link className="auth-nav" to="/timesheet">
-        TimeSheet
-      </Link>
-    </div>
-  );
-}
-
 function PrivateRoute({ component: Component, authed, ...rest }) {
   return (
     <Route
@@ -42,7 +26,6 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
 const App = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { currentUser } = state;
 
   React.useEffect(() => {
     const employees = api.getAllEmployees();
@@ -67,29 +50,53 @@ const App = () => {
     }
   }, [state]);
 
+  function Navbar() {
+    return (
+      <div>
+        <Link id="login-nav" to="/login">
+          Login{" "}
+        </Link>
+        <Link className="auth-nav" to="/report">
+          Report
+        </Link>
+        <Link className="auth-nav" to="/timesheet">
+          TimeSheet
+        </Link>
+        <button
+          className="auth-nav"
+          onClick={() => {
+            dispatch({ type: "CLEAR_CURRENT_USER" });
+          }}
+        >
+          Logout
+        </button>
+      </div>
+    );
+  }
+
   return (
     <main>
       {state?.currentUser?.name && (
         <div>
           <h1>
-            Logged in as {currentUser?.name}{" "}
-            <span>({currentUser?.isAdmin ? "admin" : "user"})</span>
+            Logged in as {state?.currentUser?.name}{" "}
+            <span>({state?.currentUser?.isAdmin ? "admin" : "user"})</span>
           </h1>
         </div>
       )}
       <Navbar />
       <div className="container">
         <Switch>
-          {!currentUser?.name && (
+          {!state?.currentUser?.name && (
             <Route path="/login" component={LoginPage} exact />
           )}
           <PrivateRoute
-            authed={currentUser?.name}
+            authed={state?.currentUser?.name}
             path="/timesheet"
             component={TimeSheetPage}
           />
           <PrivateRoute
-            authed={currentUser?.name}
+            authed={state?.currentUser?.name}
             path="/report"
             component={ReportPage}
           />
