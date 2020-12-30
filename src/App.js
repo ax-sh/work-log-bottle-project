@@ -41,43 +41,42 @@ const App = () => {
     if (state?.currentUser?.name) {
       document.querySelector("#login-nav").style.display = "none";
       document.querySelectorAll(".auth-nav").forEach((i) => {
-        i.style.display = "inherit";
+        i.style.display = "inline-block";
       });
     } else {
       document.querySelectorAll(".auth-nav").forEach((i) => {
         i.style.display = "none";
       });
-      document.querySelector("#login-nav").style.display = "inherit";
+      document.querySelector("#login-nav").style.display = "inline-block";
     }
   }, [state]);
 
-  function Navbar() {
-    return (
-      <div>
-        <button
-          id="logout-button"
-          className="auth-nav"
-          onClick={() => {
-            dispatch({ type: "CLEAR_CURRENT_USER" });
-          }}
-        >
-          Logout
-        </button>
-        <Link id="login-nav" to="/login">
-          Login
-        </Link>
-        <Link className="auth-nav" to="/report">
-          Report
-        </Link>
-        <Link className="auth-nav" to="/timesheet">
-          TimeSheet
-        </Link>
-      </div>
-    );
-  }
+  const Navbar = () => (
+    <nav>
+      <Link id="login-nav" to="/login">
+        Login
+      </Link>
+      <Link className="auth-nav" to="/report">
+        Show All Users Time Logs
+      </Link>
+      <Link className="auth-nav" to="/timesheet">
+        Create New Log
+      </Link>
+      <button
+        id="logout-button"
+        className="auth-nav"
+        onClick={() => {
+          dispatch({ type: "CLEAR_CURRENT_USER" });
+        }}
+      >
+        Logout
+      </button>
+    </nav>
+  );
 
   return (
     <main>
+      <Navbar />
       {state?.currentUser?.name && (
         <div>
           <img src={state?.currentUser?.image} />
@@ -87,7 +86,6 @@ const App = () => {
           </h1>
         </div>
       )}
-      <Navbar />
       <div className="container">
         <Switch>
           {!state?.currentUser?.name && (
