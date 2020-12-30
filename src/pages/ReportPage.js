@@ -36,6 +36,38 @@ const ReportPage = () => {
     return newLogs;
   };
 
+  const dailyLogs = React.useMemo(() => serializeLogs(state?.logs), [
+    state?.logs,
+  ]);
+
+  const chunker = (arr, size) =>
+    arr.reduce(
+      (acc, _, i) => (i % size ? acc : [...acc, arr.slice(i, i + size)]),
+      []
+    );
+
+  const batchLogsForIntervalOf = (logs, size) => {
+    const o = {};
+    Object.keys(logs).forEach((i) => {
+      const batches = chunker(Object.entries(logs[i]), size).map((k, v) => {
+        return {
+          [v + 1]: k.reduce((state, [date, hours]) => hours + state, 0),
+        };
+      });
+      o[i] = batches;
+    });
+
+    return o;
+  };
+
+  const batchLogsForAWeek = (logs) => {
+    return batchLogsForIntervalOf(logs, 7);
+  };
+
+  const batchLogsForAMonth = (logs) => {
+    return batchLogsForIntervalOf(logs, 30);
+  };
+
   return (
     <div>
       <div className="time-interval-container">
@@ -47,20 +79,19 @@ const ReportPage = () => {
       {selected === "1D" && (
         <div>
           <h1>1D</h1>
-          <pre>{JSON.stringify(serializeLogs(state?.logs), null, 4)}</pre>
-          {/* {state?.logs.map((i) => (
-            <div>{JSON.stringify(i)}</div>
-          ))} */}
+          <pre>{JSON.stringify(dailyLogs, null, 4)}</pre>
         </div>
       )}
       {selected === "1W" && (
         <div>
           <h1>1W</h1>
+          <pre>{JSON.stringify(batchLogsForAWeek(dailyLogs), null, 4)}</pre>
         </div>
       )}
       {selected === "1M" && (
         <div>
           <h1>1M</h1>
+          <pre>{JSON.stringify(batchLogsForAMonth(dailyLogs), null, 4)}</pre>
         </div>
       )}
     </div>
