@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import ProfileWrapper from "../components/ProfileWrapper";
 // import { SET_CURRENT_USER } from "../redux/actionTypes";
 
 const LoginPage = () => {
@@ -10,11 +11,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       {state?.employees.map((i) => (
-        <div className="profile-wrapper">
-          <img src={i.image} alt="image" />
-          <span>{i.isAdmin ? "admin" : "user"}</span>
-          <button onClick={() => onClick(i)}>Login as {i.name}</button>
-        </div>
+        <ProfileWrapper {...i} onClick={onClick} />
       ))}
     </div>
   );
