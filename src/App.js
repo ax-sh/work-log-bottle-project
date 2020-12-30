@@ -2,13 +2,14 @@ import React from "react";
 import api from "./api";
 import TimeSheetPage from "./pages/TimeSheetPage";
 import ReportPage from "./pages/ReportPage";
+import LoginPage from "./pages/LoginPage";
 import { useDispatch } from "react-redux";
 import { Link, Route, Switch } from "react-router-dom";
 
 function Navbar() {
   return (
     <div>
-      <Link to="/">Home </Link>
+      <Link to="/login">Login </Link>
       <Link to="/report">Report</Link>
       <Link to="/timesheet">TimeSheet</Link>
     </div>
@@ -25,7 +26,7 @@ const App = () => {
     <main>
       <Navbar />
       <Switch>
-        <Route path="/" component={TimeSheetPage} exact />
+        <Route path="/login" component={LoginPage} exact />
         <Route path="/timesheet" component={TimeSheetPage} />
         <Route path="/report" component={ReportPage} />
       </Switch>
