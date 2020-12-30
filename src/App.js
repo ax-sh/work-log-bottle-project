@@ -79,7 +79,7 @@ const App = () => {
     <main>
       <Navbar />
       {state?.currentUser?.name && (
-        <div>
+        <div className="nav-profile-wrapper">
           <img src={state?.currentUser?.image} />
           <h1>
             Logged in as {state?.currentUser?.name}{" "}
