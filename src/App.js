@@ -70,24 +70,25 @@ const App = () => {
   return (
     <main>
       <Navbar />
-      {console.log(state?.currentUser?.id)}
-      <Switch>
-        {!state?.currentUser?.name && (
-          <Route path="/login" component={LoginPage} exact />
-        )}
-        {/* <Route path="/timesheet" component={TimeSheetPage} /> */}
-        {/* <Route path="/report" component={ReportPage} /> */}
-        <PrivateRoute
-          authed={state?.currentUser?.name}
-          path="/timesheet"
-          component={TimeSheetPage}
-        />
-        <PrivateRoute
-          authed={state?.currentUser?.name}
-          path="/report"
-          component={ReportPage}
-        />
-      </Switch>
+      <div className="container">
+        <Switch>
+          {!state?.currentUser?.name && (
+            <Route path="/login" component={LoginPage} exact />
+          )}
+          {/* <Route path="/timesheet" component={TimeSheetPage} /> */}
+          {/* <Route path="/report" component={ReportPage} /> */}
+          <PrivateRoute
+            authed={state?.currentUser?.name}
+            path="/timesheet"
+            component={TimeSheetPage}
+          />
+          <PrivateRoute
+            authed={state?.currentUser?.name}
+            path="/report"
+            component={ReportPage}
+          />
+        </Switch>
+      </div>
     </main>
   );
 };
