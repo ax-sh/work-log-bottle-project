@@ -1,7 +1,19 @@
 import React from "react";
 import api from "./api";
 import TimeSheetPage from "./pages/TimeSheetPage";
-import { useSelector, useDispatch } from "react-redux";
+import ReportPage from "./pages/ReportPage";
+import { useDispatch } from "react-redux";
+import { Link, Route, Switch } from "react-router-dom";
+
+function Navbar() {
+  return (
+    <div>
+      <Link to="/">Home </Link>
+      <Link to="/report">Report</Link>
+      <Link to="/timesheet">TimeSheet</Link>
+    </div>
+  );
+}
 
 const App = () => {
   const dispatch = useDispatch();
@@ -10,9 +22,14 @@ const App = () => {
     dispatch({ type: "UPDATE_EMPLOYEES", employees });
   }, []);
   return (
-    <div className="app">
-      <TimeSheetPage />
-    </div>
+    <main>
+      <Navbar />
+      <Switch>
+        <Route path="/" component={TimeSheetPage} exact />
+        <Route path="/timesheet" component={TimeSheetPage} />
+        <Route path="/report" component={ReportPage} />
+      </Switch>
+    </main>
   );
 };
 
