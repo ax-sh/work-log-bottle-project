@@ -28,7 +28,7 @@ const ReportPage = () => {
       const tt = dayjs(`2000-01-01 ${i.end_time}`);
       const mins = tt.diff(ft, "minutes", true);
       const totalHours = parseFloat(mins / 60);
-      const totalMins = dayjs().minute(mins).$m;
+      // const totalMins = dayjs().minute(mins).$m;
 
       newLogs[e][i.date].push(totalHours);
     });
