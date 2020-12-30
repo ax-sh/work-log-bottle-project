@@ -21,7 +21,7 @@ const ReportPage = () => {
         newLogs[e] = {};
       }
       if (!newLogs[e][i.date]) {
-        newLogs[e][i.date] = [];
+        newLogs[e][i.date] = 0;
       }
 
       const ft = dayjs(`2000-01-01 ${i.start_time}`);
@@ -30,7 +30,8 @@ const ReportPage = () => {
       const totalHours = parseFloat(mins / 60);
       // const totalMins = dayjs().minute(mins).$m;
 
-      newLogs[e][i.date].push(totalHours);
+      newLogs[e][i.date] += totalHours;
+      // .push(totalHours);
     });
     return newLogs;
   };
