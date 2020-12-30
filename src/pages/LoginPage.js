@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   // React.use
   return (
-    <div>
+    <div className="login-container container">
       {/* <form id="login-form" onSubmit={onSubmit}>
         <div>
           <input type="text" placeholder="username" />
