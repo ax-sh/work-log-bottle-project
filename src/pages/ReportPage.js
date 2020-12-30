@@ -1,10 +1,9 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import React from "react";
 import dayjs from "dayjs";
 
 const ReportPage = () => {
   const state = useSelector((state) => state);
-  // const dispatch = useDispatch();
   const [selected, setSelected] = React.useState("1D");
 
   const onClick = ({ target }) => {
@@ -14,7 +13,9 @@ const ReportPage = () => {
 
   // makes the work log time to a much more manageable
   // formatted in hours
-  const serializeLogs = (logs) => {
+
+  const dailyLogs = React.useMemo(() => {
+    const logs = state?.logs;
     const newLogs = {};
     logs.forEach((i) => {
       const e = state?.employees.find((x) => i.employeeId === x.id).name;
@@ -34,11 +35,7 @@ const ReportPage = () => {
       newLogs[e][i.date] += totalHours;
     });
     return newLogs;
-  };
-
-  const dailyLogs = React.useMemo(() => serializeLogs(state?.logs), [
-    state?.logs,
-  ]);
+  }, [state?.logs, state?.employees]);
 
   const chunker = (arr, size) =>
     arr.reduce(
