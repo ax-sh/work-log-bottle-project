@@ -13,8 +13,11 @@ const api = {
   getAllEmployees() {
     return employees;
   },
-  getEmployee(id) {},
-  getEmployeeLog(id) {},
+  getLogForEmployee(id) {
+    return axios
+      .get("http://localhost:3001/logs?employeeId=" + id)
+      .then((x) => x.data);
+  },
   createLog(log) {
     return axios.post("http://localhost:3001/logs", log);
   },
