@@ -95,7 +95,7 @@ const CreateLogPage = () => {
         </form>
       </div>
       <div>
-        {loading && <div class="loading">loading...</div>}
+        {loading && <div class="loading">LOADING...</div>}
         {state &&
           state.logs &&
           state.logs
