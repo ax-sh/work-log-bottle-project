@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 
 const ReportPage = () => {
   const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [selected, setSelected] = React.useState("1D");
 
   const onClick = ({ target }) => {

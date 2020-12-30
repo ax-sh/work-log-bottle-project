@@ -17,7 +17,12 @@ const TimeSheetPage = () => {
   const createLog = (event) => {
     event.preventDefault();
     const target = event.target;
-    const remarks = target.querySelector("[name=remarks]").value;
+    const remarks = target.querySelector("[name=remarks]").value.trim();
+
+    if (!remarks) {
+      alert("Remarks cant be left empty");
+      return;
+    }
 
     // TODO sanitize the data
     // make sure that the stat time is older than the end time
