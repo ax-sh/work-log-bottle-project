@@ -42,6 +42,13 @@ a {
   position: relative;
 }
 
+.user-log {
+  display: flex;
+}
+.user-log > div {
+  flex: 1;
+}
+
 /* 
 .time-form-container form {
   display: flex;

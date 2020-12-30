@@ -46,6 +46,7 @@ const TimeSheetPage = () => {
     <div className="user-log">
       <div>{i.date}</div>
       <div>{i.remarks}</div>
+      <div>{i.employeeId}</div>
       <div>{`${i.start_time} > ${i.end_time}`}</div>
     </div>
   );
@@ -78,7 +79,11 @@ const TimeSheetPage = () => {
       </div>
       <div>
         {loading && <div class="loading">loading...</div>}
-        {state && state.logs && state.logs.map(userLogMapper)}
+        {state &&
+          state.logs &&
+          state.logs
+            .filter((i) => i.employeeId === state?.currentUser?.id)
+            .map(userLogMapper)}
         {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
     </div>
