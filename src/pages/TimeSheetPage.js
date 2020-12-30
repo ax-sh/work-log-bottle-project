@@ -19,22 +19,25 @@ const TimeSheetPage = () => {
     const target = event.target;
     const remarks = target.querySelector("[name=remarks]").value;
 
-    const _date = dayjs(date).format("DD/MM/YYYY");
+    // TODO sanitize the data
+    // make sure that the stat time is older than the end time
+
     const log = {
-      date: _date,
-      start_time: dayjs(startTime).format("HH:MM"),
-      end_time: dayjs(endTime).format("HH:MM"),
+      date,
+      start_time: startTime,
+      end_time: endTime,
       remarks,
+      employeeId: state.currentUser.id,
     };
+    log.date = dayjs(log.date).format("DD/MM/YYYY");
+    log.start_time = dayjs(log.start_time).format("HH:mm");
+    log.end_time = dayjs(log.end_time).format("HH:mm");
 
     setLoading(true);
 
     api
       .createLog(log)
-      .then((x) => x.data)
       .then((log) => {
-        console.log({ log });
-        console.log({ state });
         dispatch({ type: "CREATE_LOG", log });
       })
       .catch(alert)
@@ -47,13 +50,13 @@ const TimeSheetPage = () => {
     <div className="user-log">
       <div>{i.date}</div>
       <div>{i.remarks}</div>
+      <div>{i.employeeId}</div>
       <div>{`${i.start_time} > ${i.end_time}`}</div>
     </div>
   );
   return (
     <div className="form-container">
       <div class="time-form-container">
-        {loading && <div class="loading">loading...</div>}
         <form onSubmit={createLog}>
           <input name="remarks" type="text" placeholder="What are you doing?" />
           <DatePicker selected={date} onChange={(date) => setDate(date)} />
@@ -79,7 +82,12 @@ const TimeSheetPage = () => {
         </form>
       </div>
       <div>
-        {state && state.logs && state.logs.map(userLogMapper)}
+        {loading && <div class="loading">loading...</div>}
+        {state &&
+          state.logs &&
+          state.logs
+            .filter((i) => i.employeeId === state?.currentUser?.id) //not recommending to do this in real projects
+            .map(userLogMapper)}
         {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
     </div>

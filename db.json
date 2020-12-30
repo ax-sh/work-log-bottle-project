@@ -1,0 +1,148 @@
+{
+  "employees": [
+    {
+      "name": "Olivia",
+      "id": 0,
+      "image": "https://randomuser.me/api/portraits/women/0.jpg",
+      "isAdmin": true
+    },
+    {
+      "name": "Emma",
+      "id": 1,
+      "image": "https://randomuser.me/api/portraits/women/1.jpg",
+      "isAdmin": false
+    },
+    {
+      "name": "Ava",
+      "id": 2,
+      "image": "https://randomuser.me/api/portraits/women/2.jpg",
+      "isAdmin": false
+    },
+    {
+      "name": "Sophia",
+      "id": 3,
+      "image": "https://randomuser.me/api/portraits/women/3.jpg",
+      "isAdmin": false
+    },
+    {
+      "name": "Isabella",
+      "id": 4,
+      "image": "https://randomuser.me/api/portraits/women/4.jpg",
+      "isAdmin": false
+    }
+  ],
+  "logs": [
+    {
+      "date": "30/12/2020",
+      "start_time": "18:00",
+      "end_time": "18:45",
+      "remarks": "Hi",
+      "employeeId": 0,
+      "id": 2
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "19:00",
+      "end_time": "23:00",
+      "remarks": "Hi Again",
+      "employeeId": 0,
+      "id": 3
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "22:00",
+      "end_time": "23:00",
+      "remarks": "Having a call",
+      "employeeId": 1,
+      "id": 4
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "23:00",
+      "end_time": "23:30",
+      "remarks": "Having a call again",
+      "employeeId": 1,
+      "id": 5
+    },
+    {
+      "date": "31/12/2020",
+      "start_time": "20:00",
+      "end_time": "23:00",
+      "remarks": "trying to sleep",
+      "employeeId": 1,
+      "id": 6
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "00:00",
+      "end_time": "01:00",
+      "remarks": "Asian things",
+      "employeeId": 2,
+      "id": 7
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "01:00",
+      "end_time": "02:00",
+      "remarks": "Asian things again",
+      "employeeId": 2,
+      "id": 8
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "14:00",
+      "end_time": "17:00",
+      "remarks": "One more time",
+      "employeeId": 2,
+      "id": 9
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "18:30",
+      "end_time": "19:00",
+      "remarks": "making faces",
+      "employeeId": 4,
+      "id": 10
+    },
+    {
+      "date": "01/11/2020",
+      "start_time": "18:30",
+      "end_time": "19:00",
+      "remarks": "time travel",
+      "employeeId": 4,
+      "id": 11
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "18:30",
+      "end_time": "19:00",
+      "remarks": "doing?",
+      "employeeId": 3,
+      "id": 12
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "18:30",
+      "end_time": "19:00",
+      "remarks": "ya it works",
+      "employeeId": 2,
+      "id": 13
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "18:30",
+      "end_time": "19:00",
+      "remarks": "ya it works",
+      "employeeId": 2,
+      "id": 14
+    },
+    {
+      "date": "30/12/2020",
+      "start_time": "19:30",
+      "end_time": "20:00",
+      "remarks": "things",
+      "employeeId": 0,
+      "id": 15
+    }
+  ]
+}
