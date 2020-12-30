@@ -1,0 +1,37 @@
+/* pallette
+bg:2b2d42
+fg:8d99ae
+highlight:ef233c
+*/
+
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.form-container {
+  width: 80%;
+  margin: auto;
+}
+
+.time-form-container form {
+  display: flex;
+}
+.time-form-container > input[type="text"] {
+  flex: 1;
+  padding: 1em;
+  font-size: large;
+}
+
+.user-log div {
+  margin-right: 1em;
+}
+
+.user-log {
+  display: flex;
+}
+
+.user-log > div + div {
+  flex: 1;
+}
