@@ -53,14 +53,14 @@ const App = () => {
 
   const Navbar = () => (
     <nav>
-      <Link id="login-nav" to="/login">
-        Login
+      <Link className="auth-nav" to="/">
+        Home
       </Link>
-      <Link className="auth-nav" to="/report">
+      <Link className="auth-nav" to="/show_logs">
         Show All Users Time Logs
       </Link>
-      <Link className="auth-nav" to="/timesheet">
-        Create New Log
+      <Link id="login-nav" to="/login">
+        Login
       </Link>
       <a
         id="logout-button"
@@ -95,11 +95,13 @@ const App = () => {
           <PrivateRoute
             authed={state?.currentUser?.name}
             path="/"
+            exact
             component={CreateLogPage}
           />
           <PrivateRoute
             authed={state?.currentUser?.name}
-            path="/report"
+            path="/show_logs"
+            exact
             component={ReportPage}
           />
         </Switch>
