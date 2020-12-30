@@ -35,3 +35,19 @@ body {
 .user-log > div + div {
   flex: 1;
 } */
+
+#login-form {
+  width: 50%;
+  margin: auto;
+}
+#login-form > div {
+  display: flex;
+}
+#login-form > div input {
+  padding: 5px;
+  font-size: 2em;
+}
+
+#login-form > div input[type="text"] {
+  flex: 1;
+}
