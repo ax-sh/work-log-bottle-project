@@ -11,6 +11,22 @@ const ReportPage = () => {
     console.log({ selected });
   };
 
+  const serializeLogs = (logs) => {
+    const newLogs = {};
+    logs.forEach((i) => {
+      const e = state?.employees.find((x) => i.employeeId === x.id).name;
+      // const e = i.employeeId;
+      if (!newLogs[e]) {
+        newLogs[e] = {};
+      }
+      if (!newLogs[e][i.date]) {
+        newLogs[e][i.date] = [];
+      }
+      newLogs[e][i.date].push({ a: i.start_time, b: i.end_time });
+    });
+    return newLogs;
+  };
+
   return (
     <div>
       <div className="time-interval-container">
@@ -22,9 +38,10 @@ const ReportPage = () => {
       {selected === "1D" && (
         <div>
           <h1>1D</h1>
-          {state?.logs.map((i) => (
+          <pre>{JSON.stringify(serializeLogs(state?.logs), null, 4)}</pre>
+          {/* {state?.logs.map((i) => (
             <div>{JSON.stringify(i)}</div>
-          ))}
+          ))} */}
         </div>
       )}
       {selected === "1W" && (
