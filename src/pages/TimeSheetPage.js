@@ -25,6 +25,7 @@ const TimeSheetPage = () => {
       start_time: dayjs(startTime).format("HH:MM"),
       end_time: dayjs(endTime).format("HH:MM"),
       remarks,
+      employeeId: state.currentUser.id,
     };
 
     setLoading(true);
