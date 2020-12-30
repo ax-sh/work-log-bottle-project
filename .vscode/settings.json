@@ -11,7 +11,7 @@
         "**/public": true,
         "**/.gitignore": true,
         "**/debug.log": true,
-        "**/package.json": true,
+        "**/package.json": false,
         "**/.eslintcache": true
     },
     "explorerExclude.backup": null

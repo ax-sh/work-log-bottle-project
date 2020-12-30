@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import api from "../api";
 
 const TimeSheetPage = () => {
   const state = useSelector((state) => state);
@@ -24,7 +25,15 @@ const TimeSheetPage = () => {
       end_time: dayjs(endTime).format("HH:MM"),
       remarks,
     };
-    dispatch({ type: "CREATE_LOG", log });
+
+    api
+      .createLog(log)
+      .then((x) => x.data)
+      .then((log) => {
+        console.log({ log });
+        dispatch({ type: "CREATE_LOG", log });
+      })
+      .catch(alert);
   };
 
   const userLogMapper = (i) => (
