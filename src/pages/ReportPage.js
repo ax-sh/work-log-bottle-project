@@ -12,6 +12,8 @@ const ReportPage = () => {
     console.log({ selected });
   };
 
+  // makes the work log time to a much more manageable
+  // formatted in hours
   const serializeLogs = (logs) => {
     const newLogs = {};
     logs.forEach((i) => {
@@ -28,10 +30,8 @@ const ReportPage = () => {
       const tt = dayjs(`2000-01-01 ${i.end_time}`);
       const mins = tt.diff(ft, "minutes", true);
       const totalHours = parseFloat(mins / 60);
-      // const totalMins = dayjs().minute(mins).$m;
 
       newLogs[e][i.date] += totalHours;
-      // .push(totalHours);
     });
     return newLogs;
   };
