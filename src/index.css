@@ -14,7 +14,7 @@ a {
   color: #ef233c;
 }
 
-.form-container {
+.container {
   width: 80%;
   margin: auto;
 }
@@ -41,7 +41,7 @@ a {
   flex: 1;
 } */
 
-#login-form {
+/* #login-form {
   width: 50%;
   margin: auto;
 }
@@ -55,4 +55,4 @@ a {
 
 #login-form > div input[type="text"] {
   flex: 1;
-}
+} */
