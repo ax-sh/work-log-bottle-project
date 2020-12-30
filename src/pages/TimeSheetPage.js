@@ -30,8 +30,8 @@ const TimeSheetPage = () => {
       employeeId: state.currentUser.id,
     };
     log.date = dayjs(log.date).format("DD/MM/YYYY");
-    // log.start_time = dayjs(log.start_time).format("HH:mm");
-    // log.end_time = dayjs(log.end_time).format("HH:mm");
+    log.start_time = dayjs(log.start_time).format("HH:mm");
+    log.end_time = dayjs(log.end_time).format("HH:mm");
 
     setLoading(true);
 
@@ -87,7 +87,7 @@ const TimeSheetPage = () => {
         {state &&
           state.logs &&
           state.logs
-            .filter((i) => i.employeeId === state?.currentUser?.id)
+            .filter((i) => i.employeeId === state?.currentUser?.id) //not recommending to do this in real projects
             .map(userLogMapper)}
         {/* <pre>{JSON.stringify(state, null, 4)}</pre> */}
       </div>
