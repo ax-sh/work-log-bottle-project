@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+// import { SET_CURRENT_USER } from "../redux/actionTypes";
 
 const LoginPage = () => {
   const state = useSelector((state) => state);
@@ -10,7 +11,7 @@ const LoginPage = () => {
     <div className="login-container">
       {state?.employees.map((i) => (
         <div>
-          <img src={i.image} alt />
+          <img src={i.image} alt="image" />
           <button onClick={() => onClick(i)}>{i.name + " "}</button>
           {i.isAdmin ? "admin" : "user"}
         </div>
